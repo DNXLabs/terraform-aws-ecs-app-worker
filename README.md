@@ -1,14 +1,13 @@
 # terraform-aws-ecs-app-worker
 
-Terraform-aws-ecs-app-worker is an AWS ECS Application Module for Workers (no ALB)
+[![Lint Status](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/actions)
+[![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-ecs-app-worker)](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/blob/master/LICENSE)
+
+This terraform modules is an AWS ECS Application Module for Workers without Application Load Balancer (ALB)
 
 This module is designed to be used with `DNXLabs/terraform-aws-ecs` (https://github.com/DNXLabs/terraform-aws-ecs).
 
-This module requires:
- - Terraform Version >=0.12.20
-
 This modules creates the following resources:
- 
  - Cloudwatch Metrics alarm - Provides a CloudWatch Metric Alarm resource.
    - High memory
    - High cpu
@@ -27,14 +26,9 @@ This modules creates the following resources:
 In addition you have the option to create or not :
 
  - Simple Notification Service (SNS) topics - Alarm topics to create and alert on ECS service metrics. Leaving empty disables all alarms.
- - Cloudwatch Log Groups   
+ - Cloudwatch Log Groups
       - You can specify the number of days you want to retain log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
       - Export to a S3 Bucket - Whether to mark the log group to export to an S3 bucket (needs the module terraform-aws-log-exporter (https://github.com/DNXLabs/terraform-aws-log-exporter) to be deployed in the account/region)
-
-[![Lint Status](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/actions)
-[![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-ecs-app-worker)](https://github.com/DNXLabs/terraform-aws-ecs-app-worker/blob/master/LICENSE)
-
-
 
 <!--- BEGIN_TF_DOCS --->
 
