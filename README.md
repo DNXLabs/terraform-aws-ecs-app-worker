@@ -1,6 +1,6 @@
 # terraform-aws-ecs-app-worker
 
-Terraform-aws-ecs-app-worker is an AWS ECS Application Module for Workers (no ALB)
+Terraform-aws-ecs-app-worker is an AWS ECS Application Module for Workers without Application Load Balancer (ALB)
 
 This module is designed to be used with `DNXLabs/terraform-aws-ecs` (https://github.com/DNXLabs/terraform-aws-ecs).
 
