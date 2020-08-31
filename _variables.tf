@@ -47,3 +47,9 @@ variable "cloudwatch_logs_export" {
   default     = false
   description = "Whether to mark the log group to export to an S3 bucket (needs terraform-aws-log-exporter to be deployed in the account/region)"
 }
+
+variable "tags" {
+  type        = map(string)
+  default     = {}
+  description = "Extra tags to attach to resources"
+}

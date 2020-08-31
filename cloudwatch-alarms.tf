@@ -17,6 +17,14 @@ resource "aws_cloudwatch_metric_alarm" "high_memory" {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.default.name
   }
+
+  tags = merge(
+    var.tags,
+    {
+      "EcsService" = var.name
+      "EcsCluster" = var.cluster_name
+    },
+  )
 }
 
 resource "aws_cloudwatch_metric_alarm" "high_cpu" {
@@ -38,4 +46,12 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu" {
     ClusterName = var.cluster_name
     ServiceName = aws_ecs_service.default.name
   }
+
+  tags = merge(
+    var.tags,
+    {
+      "EcsService" = var.name
+      "EcsCluster" = var.cluster_name
+    },
+  )
 }
