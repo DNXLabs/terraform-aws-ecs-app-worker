@@ -53,3 +53,27 @@ variable "tags" {
   default     = {}
   description = "Extra tags to attach to resources"
 }
+
+variable "log_subscription_filter_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable cloudwatch log subscription filter"
+}
+
+variable "log_subscription_filter_role_arn" {
+  type        = string
+  default     = ""
+  description = "Role to use for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
+
+variable "log_subscription_filter_destination_arn" {
+  type        = string
+  default     = ""
+  description = "Destination for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
+
+variable "log_subscription_filter_filter_pattern" {
+  default     = ""
+  type        = string
+  description = "Filter pattern for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
