@@ -47,3 +47,27 @@ variable "cloudwatch_logs_export" {
   default     = false
   description = "Whether to mark the log group to export to an S3 bucket (needs terraform-aws-log-exporter to be deployed in the account/region)"
 }
+
+variable "log_subscription_filter_enabled" {
+  type        = bool
+  default     = false
+  description = "Enable cloudwatch log subscription filter"
+}
+
+variable "log_subscription_filter_role_arn" {
+  type        = string
+  default     = ""
+  description = "Role to use for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
+
+variable "log_subscription_filter_destination_arn" {
+  type        = string
+  default     = ""
+  description = "Destination for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
+
+variable "log_subscription_filter_filter_pattern" {
+  default     = ""
+  type        = string
+  description = "Filter pattern for log subscription filter (required when log_subscription_filter_enabled=true)"
+}
