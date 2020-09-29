@@ -54,10 +54,11 @@ In addition you have the option to create or not :
 | cloudwatch\_logs\_retention | Specifies the number of days you want to retain log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653. | `number` | `120` | no |
 | cluster\_name | n/a | `string` | `"Name of existing ECS Cluster to deploy this app to"` | no |
 | cpu | Hard limit for CPU for the container | `string` | `"0"` | no |
+| desired\_count | Number of containers (tasks) to run | `number` | `1` | no |
 | image | Docker image to deploy (can be a placeholder) | `string` | `"dnxsolutions/nginx-hello:latest"` | no |
 | log\_subscription\_filter\_destination\_arn | Destination for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
 | log\_subscription\_filter\_enabled | Enable cloudwatch log subscription filter | `bool` | `false` | no |
-| log\_subscription\_filter\_filter\_pattern | Filter pattern for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
+| log\_subscription\_filter\_filter\_pattern | Filter pattern for log subscription filter | `string` | `""` | no |
 | log\_subscription\_filter\_role\_arn | Role to use for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
 | memory | Hard memory of the container | `string` | `"512"` | no |
 | name | Name of your ECS service | `any` | n/a | yes |
