@@ -55,6 +55,10 @@ In addition you have the option to create or not :
 | cluster\_name | n/a | `string` | `"Name of existing ECS Cluster to deploy this app to"` | no |
 | cpu | Hard limit for CPU for the container | `string` | `"0"` | no |
 | image | Docker image to deploy (can be a placeholder) | `string` | `"dnxsolutions/nginx-hello:latest"` | no |
+| log\_subscription\_filter\_destination\_arn | Destination for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
+| log\_subscription\_filter\_enabled | Enable cloudwatch log subscription filter | `bool` | `false` | no |
+| log\_subscription\_filter\_filter\_pattern | Filter pattern for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
+| log\_subscription\_filter\_role\_arn | Role to use for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
 | memory | Hard memory of the container | `string` | `"512"` | no |
 | name | Name of your ECS service | `any` | n/a | yes |
 | service\_role\_arn | Existing service role ARN created by ECS cluster module | `any` | n/a | yes |
@@ -66,6 +70,7 @@ In addition you have the option to create or not :
 | Name | Description |
 |------|-------------|
 | aws\_cloudwatch\_log\_group\_arn | n/a |
+| aws\_cloudwatch\_log\_group\_name | n/a |
 
 <!--- END_TF_DOCS --->
 
