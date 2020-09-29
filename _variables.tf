@@ -12,6 +12,11 @@ variable "cpu" {
   description = "Hard limit for CPU for the container"
 }
 
+variable "desired_count" {
+  default     = 1
+  description = "Number of containers (tasks) to run"
+}
+
 variable "cluster_name" {
   default = "Name of existing ECS Cluster to deploy this app to"
 }
@@ -69,5 +74,5 @@ variable "log_subscription_filter_destination_arn" {
 variable "log_subscription_filter_filter_pattern" {
   default     = ""
   type        = string
-  description = "Filter pattern for log subscription filter (required when log_subscription_filter_enabled=true)"
+  description = "Filter pattern for log subscription filter"
 }
