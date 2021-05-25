@@ -87,6 +87,9 @@ variable "ordered_placement_strategy" {
 variable "placement_constraints" {
   # This variables may not be used with Fargate!
   description = "Rules that are taken into consideration during task placement. Maximum number of placement_constraints is 10."
-  type        = list(string)
+    type = list(object({
+      type       = string
+      expression = string
+  }))
   default     = []
 }
