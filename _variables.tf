@@ -84,7 +84,7 @@ variable "ordered_placement_strategy" {
     field      = string
     expression = string
   }))
-  default     = []
+  default = []
 }
 
 variable "placement_constraints" {
@@ -94,5 +94,5 @@ variable "placement_constraints" {
     type       = string
     expression = string
   }))
-  default     = []
+  default = []
 }
