@@ -96,3 +96,28 @@ variable "placement_constraints" {
   }))
   default = []
 }
+
+variable "launch_type" {
+  default     = "EC2"
+  description = "The launch type on which to run your service. The valid values are EC2 and FARGATE. Defaults to EC2."
+}
+
+variable "fargate_spot" {
+  default     = false
+  description = "Set true to use FARGATE_SPOT capacity provider by default (only when launch_type=FARGATE)"
+}
+
+variable "subnets" {
+  default     = null
+  description = "The subnets associated with the task or service. (REQUIRED IF 'LAUCH_TYPE' IS FARGATE)"
+}
+
+variable "network_mode" {
+  default     = null
+  description = "The Docker networking mode to use for the containers in the task. The valid values are none, bridge, awsvpc, and host. (REQUIRED IF 'LAUCH_TYPE' IS FARGATE)"
+}
+
+variable "security_groups" {
+  default     = null
+  description = "The security groups associated with the task or service"
+}
