@@ -55,16 +55,21 @@ In addition you have the option to create or not :
 | cluster\_name | n/a | `string` | `"Name of existing ECS Cluster to deploy this app to"` | no |
 | cpu | Hard limit for CPU for the container | `string` | `"0"` | no |
 | desired\_count | Number of containers (tasks) to run | `number` | `1` | no |
+| fargate\_spot | Set true to use FARGATE\_SPOT capacity provider by default (only when launch\_type=FARGATE) | `bool` | `false` | no |
 | image | Docker image to deploy (can be a placeholder) | `string` | `"dnxsolutions/nginx-hello:latest"` | no |
+| launch\_type | The launch type on which to run your service. The valid values are EC2 and FARGATE. Defaults to EC2. | `string` | `"EC2"` | no |
 | log\_subscription\_filter\_destination\_arn | Destination for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
 | log\_subscription\_filter\_enabled | Enable cloudwatch log subscription filter | `bool` | `false` | no |
 | log\_subscription\_filter\_filter\_pattern | Filter pattern for log subscription filter | `string` | `""` | no |
 | log\_subscription\_filter\_role\_arn | Role to use for log subscription filter (required when log\_subscription\_filter\_enabled=true) | `string` | `""` | no |
 | memory | Hard memory of the container | `string` | `"512"` | no |
 | name | Name of your ECS service | `any` | n/a | yes |
+| network\_mode | The Docker networking mode to use for the containers in the task. The valid values are none, bridge, awsvpc, and host. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
 | ordered\_placement\_strategy | Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of ordered\_placement\_strategy blocks is 5. | <pre>list(object({<br>    field      = string<br>    expression = string<br>  }))</pre> | `[]` | no |
 | placement\_constraints | Rules that are taken into consideration during task placement. Maximum number of placement\_constraints is 10. | <pre>list(object({<br>    type       = string<br>    expression = string<br>  }))</pre> | `[]` | no |
+| security\_groups | The security groups associated with the task or service | `any` | `null` | no |
 | service\_role\_arn | Existing service role ARN created by ECS cluster module | `any` | n/a | yes |
+| subnets | The subnets associated with the task or service. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
 | task\_role\_arn | Existing task role ARN created by ECS cluster module | `any` | n/a | yes |
 | vpc\_id | VPC ID to deploy this app to | `any` | n/a | yes |
 
