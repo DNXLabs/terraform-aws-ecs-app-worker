@@ -43,6 +43,12 @@ variable "alarm_sns_topics" {
   description = "Alarm topics to create and alert on ECS service metrics"
 }
 
+variable "alarm_prefix" {
+  type        = string
+  description = "String prefix for cloudwatch alarms. (Optional, leave blank to use iam_account_alias)"
+  default     = ""
+}
+
 variable "cloudwatch_logs_retention" {
   default     = 120
   description = "Specifies the number of days you want to retain log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653."
