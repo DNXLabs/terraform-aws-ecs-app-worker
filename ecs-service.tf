@@ -6,7 +6,7 @@ resource "aws_ecs_service" "default" {
   desired_count          = var.desired_count
   enable_execute_command = true
 
-  deployment_maximum_percent         = try(var.deployment_maximum_percent, 100) 
+  deployment_maximum_percent         = try(var.deployment_maximum_percent, 100)
   deployment_minimum_healthy_percent = try(var.deployment_minimum_healthy_percent, 0)
 
   dynamic "placement_constraints" {
