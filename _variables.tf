@@ -137,3 +137,8 @@ variable "security_groups" {
   default     = null
   description = "The security groups associated with the task or service"
 }
+
+variable "without_capacity_provider" {
+  default = false
+  description = "Launch service without capacity provider"
+}

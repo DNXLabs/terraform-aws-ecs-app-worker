@@ -33,10 +33,13 @@ resource "aws_ecs_service" "default" {
     }
   }
 
-  capacity_provider_strategy {
-    capacity_provider = var.launch_type == "FARGATE" ? (var.fargate_spot ? "FARGATE_SPOT" : "FARGATE") : "${var.cluster_name}-capacity-provider"
-    weight            = 1
-    base              = 0
+  dynamic "capacity_provider_strategy" {
+    for_each = try(var.without_capacity_provider,false) ? [] : ["1"]
+    content {
+      capacity_provider = var.launch_type == "FARGATE" ? (var.fargate_spot ? "FARGATE_SPOT" : "FARGATE") : "${var.cluster_name}-capacity-provider"
+      weight            = 1
+      base              = 0
+    }
   }
 
   lifecycle {

@@ -75,6 +75,7 @@ In addition you have the option to create or not :
 | subnets | The subnets associated with the task or service. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
 | task\_role\_arn | Existing task role ARN created by ECS cluster module | `any` | n/a | yes |
 | vpc\_id | VPC ID to deploy this app to | `any` | n/a | yes |
+| without\_capacity\_provider | Launch service without capacity provider | `bool` | n/a | no |
 
 ## Outputs
 
