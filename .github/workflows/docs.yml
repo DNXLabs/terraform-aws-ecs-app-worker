@@ -2,7 +2,7 @@ name: Generate terraform docs
 
 on: [pull_request]
 
-permissions: read-all
+permissions: write-all
 
 jobs:
   docs:
