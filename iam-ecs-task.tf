@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecs_task" {
-  name  = "ecs-task-${var.cluster_name}-${var.name}-${data.aws_region.current.name}"
+  name = "ecs-task-${var.cluster_name}-${var.name}-${data.aws_region.current.name}"
 
   assume_role_policy = <<EOF
 {
@@ -26,8 +26,8 @@ resource "aws_iam_role_policy_attachment" "ecs_task" {
 }
 
 resource "aws_iam_role_policy" "ssm_policy" {
-  name  = "ecs-ssm-policy"
-  role  = aws_iam_role.ecs_task.name
+  name = "ecs-ssm-policy"
+  role = aws_iam_role.ecs_task.name
 
   policy = <<EOF
 {
