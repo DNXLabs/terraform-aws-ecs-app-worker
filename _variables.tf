@@ -12,6 +12,16 @@ variable "cpu" {
   description = "Hard limit for CPU for the container"
 }
 
+variable "deployment_maximum_percent" {
+  default     = "100"
+  description = "Deployment maximum percentage"
+}
+
+variable "deployment_minimum_healthy_percent" {
+  default     = "0"
+  description = "Deployment minumum health percentage"
+}
+
 variable "desired_count" {
   default     = 1
   description = "Number of containers (tasks) to run"
@@ -118,6 +128,11 @@ variable "network_mode" {
 variable "security_groups" {
   default     = null
   description = "The security groups associated with the task or service"
+}
+
+variable "without_capacity_provider" {
+  default = false
+  description = "Launch service without capacity provider"
 }
 
 variable "task_role_policies_managed" {
