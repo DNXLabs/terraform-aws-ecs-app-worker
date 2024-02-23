@@ -21,14 +21,6 @@ variable "cluster_name" {
   default = "Name of existing ECS Cluster to deploy this app to"
 }
 
-variable "service_role_arn" {
-  description = "Existing service role ARN created by ECS cluster module"
-}
-
-variable "task_role_arn" {
-  description = "Existing task role ARN created by ECS cluster module"
-}
-
 variable "image" {
   description = "Docker image to deploy (can be a placeholder)"
   default     = "dnxsolutions/nginx-hello:latest"
