@@ -12,16 +12,6 @@ variable "cpu" {
   description = "Hard limit for CPU for the container"
 }
 
-variable "deployment_maximum_percent" {
-  default     = "100"
-  description = "Deployment maximum percentage"
-}
-
-variable "deployment_minimum_healthy_percent" {
-  default     = "0"
-  description = "Deployment minumum health percentage"
-}
-
 variable "desired_count" {
   default     = 1
   description = "Number of containers (tasks) to run"
@@ -29,14 +19,6 @@ variable "desired_count" {
 
 variable "cluster_name" {
   default = "Name of existing ECS Cluster to deploy this app to"
-}
-
-variable "service_role_arn" {
-  description = "Existing service role ARN created by ECS cluster module"
-}
-
-variable "task_role_arn" {
-  description = "Existing task role ARN created by ECS cluster module"
 }
 
 variable "image" {
@@ -138,7 +120,12 @@ variable "security_groups" {
   description = "The security groups associated with the task or service"
 }
 
-variable "without_capacity_provider" {
-  default = false
-  description = "Launch service without capacity provider"
+variable "task_role_policies_managed" {
+  default     = []
+  description = "AWS Managed policies to be added on the task role."
+}
+
+variable "task_role_policies" {
+  default     = []
+  description = "Custom policies to be added on the task role."
 }
