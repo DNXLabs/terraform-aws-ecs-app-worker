@@ -71,11 +71,11 @@ In addition you have the option to create or not :
 | ordered\_placement\_strategy | Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of ordered\_placement\_strategy blocks is 5. | <pre>list(object({<br>    field      = string<br>    expression = string<br>  }))</pre> | `[]` | no |
 | placement\_constraints | Rules that are taken into consideration during task placement. Maximum number of placement\_constraints is 10. | <pre>list(object({<br>    type       = string<br>    expression = string<br>  }))</pre> | `[]` | no |
 | security\_groups | The security groups associated with the task or service | `any` | `null` | no |
-| service\_role\_arn | Existing service role ARN created by ECS cluster module | `any` | n/a | yes |
 | subnets | The subnets associated with the task or service. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
-| task\_role\_arn | Existing task role ARN created by ECS cluster module | `any` | n/a | yes |
+| task\_role\_policies | Custom policies to be added on the task role. | `list` | `[]` | no |
+| task\_role\_policies\_managed | AWS Managed policies to be added on the task role. | `list` | `[]` | no |
 | vpc\_id | VPC ID to deploy this app to | `any` | n/a | yes |
-| without\_capacity\_provider | Launch service without capacity provider | `bool` | n/a | no |
+| without\_capacity\_provider | Launch service without capacity provider | `bool` | `false` | no |
 
 ## Outputs
 
