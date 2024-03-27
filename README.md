@@ -58,6 +58,7 @@ In addition you have the option to create or not :
 | deployment\_maximum\_percent | Deployment maximum percentage | `string` | `"100"` | no |
 | deployment\_minimum\_healthy\_percent | Deployment minumum health percentage | `string` | `"0"` | no |
 | desired\_count | Number of containers (tasks) to run | `number` | `1` | no |
+| enable\_schedule | Enables schedule to shut down and start up instances outside business hours. | `bool` | `false` | no |
 | fargate\_spot | Set true to use FARGATE\_SPOT capacity provider by default (only when launch\_type=FARGATE) | `bool` | `false` | no |
 | image | Docker image to deploy (can be a placeholder) | `string` | `"dnxsolutions/nginx-hello:latest"` | no |
 | launch\_type | The launch type on which to run your service. The valid values are EC2 and FARGATE. Defaults to EC2. | `string` | `"EC2"` | no |
@@ -70,6 +71,8 @@ In addition you have the option to create or not :
 | network\_mode | The Docker networking mode to use for the containers in the task. The valid values are none, bridge, awsvpc, and host. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
 | ordered\_placement\_strategy | Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. The maximum number of ordered\_placement\_strategy blocks is 5. | <pre>list(object({<br>    field      = string<br>    expression = string<br>  }))</pre> | `[]` | no |
 | placement\_constraints | Rules that are taken into consideration during task placement. Maximum number of placement\_constraints is 10. | <pre>list(object({<br>    type       = string<br>    expression = string<br>  }))</pre> | `[]` | no |
+| schedule\_cron\_start | Cron expression to define when to trigger a start of the auto-scaling group. E.g. '0 20 \* \* \*' to start at 8pm GMT time. | `string` | `""` | no |
+| schedule\_cron\_stop | Cron expression to define when to trigger a stop of the auto-scaling group. E.g. '0 10 \* \* \*' to stop at 10am GMT time. | `string` | `""` | no |
 | security\_groups | The security groups associated with the task or service | `any` | `null` | no |
 | subnets | The subnets associated with the task or service. (REQUIRED IF 'LAUCH\_TYPE' IS FARGATE) | `any` | `null` | no |
 | task\_role\_policies | Custom policies to be added on the task role. | `list` | `[]` | no |
