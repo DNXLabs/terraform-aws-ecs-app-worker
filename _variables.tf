@@ -144,3 +144,75 @@ variable "task_role_policies" {
   default     = []
   description = "Custom policies to be added on the task role."
 }
+
+variable "autoscaling_cpu" {
+  default     = false
+  description = "Enables autoscaling based on average CPU tracking"
+}
+
+variable "autoscaling_memory" {
+  default     = false
+  description = "Enables autoscaling based on average Memory tracking"
+}
+
+variable "autoscaling_max" {
+  default     = 4
+  description = "Max number of containers to scale with autoscaling"
+}
+
+variable "autoscaling_min" {
+  default     = 1
+  description = "Min number of containers to scale with autoscaling"
+}
+
+variable "autoscaling_target_cpu" {
+  default     = 50
+  description = "Target average CPU percentage to track for autoscaling"
+}
+
+variable "autoscaling_target_memory" {
+  default     = 90
+  description = "Target average Memory percentage to track for autoscaling"
+}
+
+variable "autoscaling_scale_in_cooldown" {
+  default     = 300
+  description = "Cooldown in seconds to wait between scale in events"
+}
+
+variable "autoscaling_scale_out_cooldown" {
+  default     = 300
+  description = "Cooldown in seconds to wait between scale out events"
+}
+
+variable "enable_schedule" {
+  default     = false
+  description = "Enables schedule to shut down and start up instances outside business hours."
+}
+
+variable "autoscaling_custom" {
+  type = list(object({
+    name               = string
+    scale_in_cooldown  = number
+    scale_out_cooldown = number
+    target_value       = number
+    metric_name        = string
+    namespace          = string
+    statistic          = string
+  }))
+  default     = []
+  description = "Set one or more app autoscaling by customized metric"
+}
+
+variable "schedule_cron_start" {
+  type        = string
+  default     = ""
+  description = "Cron expression to define when to trigger a start of the auto-scaling group. E.g. 'cron(00 21 ? * SUN-THU *)' to start at 8am UTC time."
+}
+
+variable "schedule_cron_stop" {
+  type        = string
+  default     = ""
+  description = "Cron expression to define when to trigger a stop of the auto-scaling group. E.g. 'cron(00 09 ? * MON-FRI *)' to start at 8am UTC time"
+}
+
