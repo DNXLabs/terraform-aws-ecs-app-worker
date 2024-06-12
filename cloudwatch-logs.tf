@@ -7,3 +7,4 @@ resource "aws_cloudwatch_log_group" "default" {
       ExportToS3 = var.cloudwatch_logs_export
     }
   )
+}
