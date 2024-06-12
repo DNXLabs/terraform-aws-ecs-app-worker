@@ -17,6 +17,12 @@ variable "desired_count" {
   description = "Number of containers (tasks) to run"
 }
 
+variable "tags" {
+  description = "Map of tags that will be added to created resources. By default resources will be tagged with terraform=true."
+  type        = map(string)
+  default     = {}
+}
+
 variable "cluster_name" {
   default = "Name of existing ECS Cluster to deploy this app to"
 }
