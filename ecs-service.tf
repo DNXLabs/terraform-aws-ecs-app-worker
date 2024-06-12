@@ -26,4 +26,11 @@ resource "aws_ecs_service" "default" {
   lifecycle {
     ignore_changes = [task_definition]
   }
+
+  tags = merge(
+    var.tags,
+    {
+      "terraform" = "true"
+    },
+  )
 }

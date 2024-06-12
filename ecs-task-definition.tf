@@ -23,4 +23,11 @@ resource "aws_ecs_task_definition" "default" {
   }
 ]
 EOT
+
+  tags = merge(
+    var.tags,
+    {
+      "terraform" = "true"
+    },
+  )
 }
