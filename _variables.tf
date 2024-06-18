@@ -216,3 +216,8 @@ variable "schedule_cron_stop" {
   description = "Cron expression to define when to trigger a stop of the auto-scaling group. E.g. 'cron(00 09 ? * MON-FRI *)' to start at 8am UTC time"
 }
 
+variable "scheduling_strategy" {
+  type        = string
+  default     = "REPLICA"
+  description = "Scheduling strategy to use for the service. Valid values are REPLICA and DAEMON."
+}

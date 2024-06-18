@@ -8,6 +8,7 @@ resource "aws_ecs_service" "default" {
 
   deployment_maximum_percent         = try(var.deployment_maximum_percent, 100)
   deployment_minimum_healthy_percent = try(var.deployment_minimum_healthy_percent, 0)
+  scheduling_strategy                = var.scheduling_strategy
 
   dynamic "placement_constraints" {
     for_each = var.launch_type == "FARGATE" ? [] : var.placement_constraints
