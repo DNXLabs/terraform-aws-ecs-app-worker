@@ -217,7 +217,7 @@ variable "schedule_cron_stop" {
 }
 
 variable "tags" {
-  description = "A map of tags to add to all resources"
+  description = "A map of tags to add to service"
   type        = map(string)
   default     = {}
 }
