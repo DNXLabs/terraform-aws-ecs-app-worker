@@ -45,4 +45,6 @@ resource "aws_ecs_service" "default" {
   lifecycle {
     ignore_changes = [task_definition]
   }
+
+  tags = var.tags
 }
