@@ -131,7 +131,7 @@ variable "security_groups" {
 }
 
 variable "without_capacity_provider" {
-  default = false
+  default     = false
   description = "Launch service without capacity provider"
 }
 

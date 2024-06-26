@@ -94,6 +94,7 @@ In addition you have the option to create or not :
 
 | Name | Description |
 |------|-------------|
+| autoscaling | n/a |
 | aws\_cloudwatch\_log\_group\_arn | n/a |
 | aws\_cloudwatch\_log\_group\_name | n/a |
 
