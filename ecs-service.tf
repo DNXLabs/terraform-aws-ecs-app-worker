@@ -40,6 +40,6 @@ resource "aws_ecs_service" "default" {
   }
 
   lifecycle {
-    ignore_changes = [task_definition]
+    ignore_changes = [load_balancer, task_definition, desired_count, capacity_provider_strategy]
   }
 }
