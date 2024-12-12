@@ -37,7 +37,7 @@ In addition you have the option to create or not :
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.0 |
+| terraform | >= 0.13.0 |
 
 ## Providers
 
@@ -49,6 +49,7 @@ In addition you have the option to create or not :
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| alarm\_prefix | String prefix for cloudwatch alarms. (Optional, leave blank to use iam\_account\_alias) | `string` | `""` | no |
 | alarm\_sns\_topics | Alarm topics to create and alert on ECS service metrics | `list` | `[]` | no |
 | cloudwatch\_logs\_export | Whether to mark the log group to export to an S3 bucket (needs terraform-aws-log-exporter to be deployed in the account/region) | `bool` | `false` | no |
 | cloudwatch\_logs\_retention | Specifies the number of days you want to retain log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653. | `number` | `120` | no |
